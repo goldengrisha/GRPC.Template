@@ -1,11 +1,9 @@
-class TestClass:
+import unittest
+
+
+class TestClass(unittest.TestCase):
     def test_one(self):
-        x = "this"
-        assert "h" in x
+        self.assertIn("h", "this")
 
     def test_two(self):
-        assert 5 == 5, "Numbers equals"
-
-def test():
-    assert 5 == 5, "Numbers equals"
-
+        self.assertEqual(1, 1)

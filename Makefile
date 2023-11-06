@@ -1,25 +1,14 @@
 SHELL=/bin/bash
 
 # Installs the environment after checkout
-install:
-	conda env create -f environment.yml --prefix ./env
+create:
+	python3 -m venv ./env
 
-# Updates the environment after updating environment.yml
-update:
-	conda env update --prefix ./env --file environment.yml  --prune
-
-activate:
-	conda init bash
-	conda activate ./env
-
-deactivate:
-	conda deactivate
-
-lint:
-	flake8 src/
+poetry_init:
+	poetry init
 
 test:
-	pytest -q tests/test.py
+	python -m unittest tests
 
 # 1. Compiles client/server-side code
 # 2. Fixes the generated protobuf relative import error
